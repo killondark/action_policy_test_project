@@ -1,4 +1,9 @@
 class PostPolicy < ApplicationPolicy
+  def index?
+    # allow everyone to perform "index" activity on posts
+    true
+  end
+
   # everyone can see any post
   def show?
     true
