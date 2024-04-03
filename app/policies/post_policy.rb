@@ -14,4 +14,9 @@ class PostPolicy < ApplicationPolicy
     # `record` is a target object (post we want to update)
     user.admin? || (user.id == record.user_id)
   end
+
+  relation_scope do |relation|
+    return relation if user.admin?
+    relation.where(user: user)
+  end
 end
