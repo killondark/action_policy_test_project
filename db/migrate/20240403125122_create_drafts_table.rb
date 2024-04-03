@@ -1,6 +1,6 @@
 class CreateDraftsTable < ActiveRecord::Migration[7.1]
   def change
-    create_table :drats do |t|
+    create_table :drafts do |t|
       t.string :title, null: false
       t.text :body, null: false
 
