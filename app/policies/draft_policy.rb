@@ -1,2 +1,0 @@
-class DraftPolicy < PostPolicy
-end

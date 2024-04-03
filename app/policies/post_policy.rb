@@ -1,4 +1,4 @@
-class PostPolicy < ApplicationPolicy
+class PostPolicy < DefaultPolicy
   def index?
     true
   end
@@ -8,11 +8,16 @@ class PostPolicy < ApplicationPolicy
   end
 
   def update?
-    user.admin? || (user.id == record.user_id)
+    admin? || is_owner?
   end
 
-  relation_scope do |relation|
-    return relation if user.admin?
-    relation.where(user: user)
+  private
+
+  def admin?
+    user.admin?
+  end
+
+  def is_owner?
+    user.id == record.user_id
   end
 end
