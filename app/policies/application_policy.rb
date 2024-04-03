@@ -5,6 +5,6 @@ class ApplicationPolicy < ActionPolicy::Base
   end
 
   def default_authorization_policy_class
-    DefaultPolicy
+    DraftPolicy
   end
 end
