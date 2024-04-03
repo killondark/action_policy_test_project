@@ -1,0 +1,2 @@
+class DefaultPolicy < ApplicationPolicy
+end
